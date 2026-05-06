@@ -13,9 +13,12 @@ If the item's intent is ambiguous, ask ONE question to understand what the perso
 
 Never ask more than one question.
 
+Format:
+> To clarify: [one question]?
+
 ## Step 2: Action or Project?
 
-**Next action:** completable in one sitting, no prerequisite step needed first.
+**Next action:** completable without stopping to wait for someone else or to produce an intermediate artifact first.
 
 **Project:** requires more than one sequential step, or depends on something that doesn't yet exist.
 
@@ -29,8 +32,6 @@ Physical verbs: call, email, open, write, print, buy, schedule, search, text, re
 
 "Decide" and "think about" are not physical verbs — push toward the physical step that makes the decision happen.
 
-If you significantly rewrote the original, add one sentence explaining why (too vague or too large for one sitting).
-
 ### If project
 
 > **This is a project, not a next action.**
@@ -40,5 +41,6 @@ If you significantly rewrote the original, add one sentence explaining why (too 
 ## Rules
 
 - One output only — never give both
-- One sequential dependency makes it a project even if the steps seem small
+- If completing it requires waiting on something or producing an intermediate artifact first, it's a project
 - Keep the next action to one sentence
+- If you significantly rewrote the original, add one sentence explaining why (too vague or needed splitting)
