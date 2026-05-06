@@ -80,7 +80,7 @@ function installCodex() {
     const linkPath = path.join(AGENTS_SKILLS_DIR, skill);
 
     if (!fs.existsSync(target)) {
-      console.error(`Codex: skill source not found at ${target} — skipping $${skill}.`);
+      console.error(`Codex: skill source not found at ${target} — skipping \$${skill}.`);
       continue;
     }
 
@@ -89,7 +89,7 @@ function installCodex() {
       try {
         existingTarget = fs.readlinkSync(linkPath);
       } catch {
-        console.warn(`Codex: $${skill} — path exists and is not a symlink; overwriting.`);
+        console.warn(`Codex: \$${skill} — path exists and is not a symlink; overwriting.`);
       }
       if (existingTarget === target) {
         console.log(`Codex: \$${skill} already installed — skipping.`);
