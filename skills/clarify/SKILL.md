@@ -36,7 +36,7 @@ Physical verbs: call, email, open, write, print, buy, schedule, search, text, re
 
 > **This is a project, not a next action.**
 > **Project outcome:** [present-tense completed state]
-> Use `gtd:plan-project` to define next actions for this project.
+> Use the plan-project skill to define next actions for this project.
 
 ## Rules
 
