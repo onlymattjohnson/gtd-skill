@@ -45,10 +45,14 @@ Rules:
 
 Format:
 > **Possible next actions (order doesn't matter):**
-> - [action]
-> - [action]
+> 1. [action]
+> 2. [action]
+
+Use numbered options so the user can choose by number.
 
 Ask: "Anything missing from this list, or shall we pick one?" Wait for their response before continuing to Step 4.
+
+If the response includes both permission to pick and a selection (for example, "yes, 3", "yes, let's pick 3", "pick #3", or "the email one"), treat that as the Step 4 choice and go directly to the confirmation in Step 4. Do not ask which one again.
 
 ## Step 4: Identify the Single Next Action
 
