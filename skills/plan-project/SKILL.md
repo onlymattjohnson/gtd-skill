@@ -1,6 +1,6 @@
 ---
 name: plan-project
-description: Use when you have a GTD project and need to clarify its outcome and brainstorm next actions. Also use when gtd:clarify flags an item as a project.
+description: Explicit invocation only: gtd:plan-project, or a direct request for the GTD plan-project skill with a project.
 ---
 
 # GTD Plan Project

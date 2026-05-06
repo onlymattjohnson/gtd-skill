@@ -1,6 +1,6 @@
 ---
 name: clarify
-description: Use when processing a GTD inbox item and need to determine whether it is a well-formed next action or a project that requires natural planning.
+description: Explicit invocation only: gtd:clarify, or a direct request for the GTD clarify skill with an inbox item.
 ---
 
 # GTD Clarify
