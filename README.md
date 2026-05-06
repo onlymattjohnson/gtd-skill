@@ -1,6 +1,6 @@
 # GTD Skill
 
-A Claude Code plugin with two skills for applying GTD (Getting Things Done) to inbox processing and project planning.
+A plugin for Claude Code and Codex with two skills for applying GTD (Getting Things Done) to inbox processing and project planning.
 
 ## Skills
 
@@ -17,6 +17,22 @@ Walks through GTD's natural planning model to define a project: surfaces the pur
 **When to use:** When you have a project (identified directly or flagged by `gtd:clarify`) and need to define it.
 
 ## Installation
+
+Clone the repo, then run:
+
+```bash
+node install.js
+```
+
+You'll be prompted to choose Claude Code, Codex, or both. Restart your CLI after installing.
+
+You can also run it via npm:
+
+```bash
+npm run setup
+```
+
+### Manual installation (Claude Code)
 
 **1. Clone this repo:**
 
@@ -47,6 +63,18 @@ Replace `/Users/<your-username>/code/gtd-skill` with the actual path where you c
 
 **3. Restart Claude Code.** The skills will appear in the session on next launch.
 
+### Manual installation (Codex)
+
+Create symlinks in `~/.agents/skills/` pointing to the skill folders in this repo:
+
+```bash
+mkdir -p ~/.agents/skills
+ln -s /path/to/gtd-skill/skills/clarify ~/.agents/skills/clarify
+ln -s /path/to/gtd-skill/skills/plan-project ~/.agents/skills/plan-project
+```
+
+Replace `/path/to/gtd-skill` with the actual path where you cloned the repo.
+
 ## Usage
 
 ### Processing an inbox item
@@ -60,7 +88,7 @@ Invoke `gtd:clarify` and paste or describe the raw item:
 Claude will ask one clarifying question if the intent is ambiguous, then output either:
 
 - A concrete next action: `**Next action:** Open the slide deck and write the agenda slide`
-- A project flag: `**This is a project, not a next action.** Use gtd:plan-project to define it.`
+- A project flag: `**This is a project, not a next action.** Use the plan-project skill to define it.`
 
 ### Planning a project
 
@@ -89,5 +117,6 @@ skills/
     SKILL.md        # gtd:clarify skill
   plan-project/
     SKILL.md        # gtd:plan-project skill
+install.js          # Cross-platform install script
 package.json        # Declares this repo as the "gtd" plugin
 ```
