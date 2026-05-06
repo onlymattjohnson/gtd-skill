@@ -35,7 +35,7 @@ function installClaudeCode() {
     try {
       data = JSON.parse(fs.readFileSync(CLAUDE_PLUGINS_FILE, 'utf8'));
     } catch {
-      // malformed JSON — start fresh
+      console.warn('Warning: installed_plugins.json could not be parsed — writing fresh file.');
     }
   }
   if (!data.plugins) data.plugins = {};
@@ -79,22 +79,34 @@ function installCodex() {
     const target = path.join(REPO_ROOT, 'skills', skill);
     const linkPath = path.join(AGENTS_SKILLS_DIR, skill);
 
+    if (!fs.existsSync(target)) {
+      console.error(`Codex: skill source not found at ${target} — skipping $${skill}.`);
+      continue;
+    }
+
     if (fs.existsSync(linkPath)) {
       let existingTarget = null;
       try {
         existingTarget = fs.readlinkSync(linkPath);
       } catch {
-        // not a symlink/junction — remove and recreate
+        console.warn(`Codex: $${skill} — path exists and is not a symlink; overwriting.`);
       }
       if (existingTarget === target) {
-        console.log(`Codex: $${skill} already installed — skipping.`);
+        console.log(`Codex: \$${skill} already installed — skipping.`);
         continue;
       }
       fs.rmSync(linkPath, { recursive: true, force: true });
     }
 
-    fs.symlinkSync(target, linkPath, symlinkType);
-    console.log(`Codex: $${skill} installed.`);
+    try {
+      fs.symlinkSync(target, linkPath, symlinkType);
+      console.log(`Codex: \$${skill} installed.`);
+    } catch (err) {
+      console.error(`Codex: failed to create link for $${skill} — ${err.message}`);
+      if (process.platform === 'win32') {
+        console.error('  On Windows, try running with Administrator privileges or enable Developer Mode.');
+      }
+    }
   }
 
   console.log('  → Skills available as $clarify and $plan-project.');
