@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Personal GTD skills for Claude Code and Codex",
   "scripts": {
-    "setup": "node install.js"
+    "setup": "node install.js",
+    "test": "node --test"
   }
 }

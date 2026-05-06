@@ -14,6 +14,22 @@ const AGENTS_SKILLS_DIR = path.join(os.homedir(), '.agents', 'skills');
 const CLAUDE_MANIFEST_FILE = path.join(REPO_ROOT, '.claude-plugin', 'plugin.json');
 const CLAUDE_MARKETPLACE_FILE = path.join(REPO_ROOT, '.claude-plugin', 'marketplace.json');
 
+function findOnPath(command, extensions = ['']) {
+  const pathEnv = process.env.PATH || '';
+  const dirs = pathEnv.split(path.delimiter).filter(Boolean);
+
+  for (const dir of dirs) {
+    for (const extension of extensions) {
+      const candidate = path.join(dir, `${command}${extension}`);
+      if (fs.existsSync(candidate)) {
+        return candidate;
+      }
+    }
+  }
+
+  return null;
+}
+
 function ask(question) {
   const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
   return new Promise(resolve => {
@@ -24,8 +40,27 @@ function ask(question) {
   });
 }
 
+function runPowerShellScript(scriptPath, args) {
+  const shell = findOnPath('pwsh', ['.exe', '']) || findOnPath('powershell', ['.exe', '']);
+  if (!shell) {
+    console.error('Claude Code: claude.ps1 found, but PowerShell was not found in PATH.');
+    process.exit(1);
+  }
+
+  return spawnSync(shell, ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', scriptPath, ...args], {
+    stdio: 'inherit',
+  });
+}
+
 function runClaude(args) {
-  const result = spawnSync('claude', args, { stdio: 'inherit' });
+  let result = spawnSync('claude', args, { stdio: 'inherit' });
+
+  if (result.error && result.error.code === 'ENOENT' && process.platform === 'win32') {
+    const powerShellShim = findOnPath('claude', ['.ps1']);
+    if (powerShellShim) {
+      result = runPowerShellScript(powerShellShim, args);
+    }
+  }
 
   if (result.error && result.error.code === 'ENOENT') {
     console.error('Claude Code: claude CLI not found in PATH.');
