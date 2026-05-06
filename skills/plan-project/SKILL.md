@@ -1,6 +1,6 @@
 ---
 name: plan-project
-description: Explicit invocation only: gtd:plan-project, or a direct request for the GTD plan-project skill with a project.
+description: "Explicit invocation only: gtd:plan-project, or a direct request for the GTD plan-project skill with a project."
 ---
 
 # GTD Plan Project

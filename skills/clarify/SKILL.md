@@ -1,6 +1,6 @@
 ---
 name: clarify
-description: Explicit invocation only: gtd:clarify, or a direct request for the GTD clarify skill with an inbox item.
+description: "Explicit invocation only: gtd:clarify, or a direct request for the GTD clarify skill with an inbox item."
 ---
 
 # GTD Clarify

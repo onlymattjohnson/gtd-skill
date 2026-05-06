@@ -25,6 +25,14 @@ function readFrontmatter(skillPath) {
   );
 }
 
+function readFrontmatterLines(skillPath) {
+  const content = fs.readFileSync(skillPath, 'utf8');
+  const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  assert.ok(match, `${skillPath} has frontmatter`);
+
+  return match[1].split(/\r?\n/).filter(Boolean);
+}
+
 test('GTD skill descriptions require explicit invocation', () => {
   const skillDirs = ['clarify', 'plan-project'];
 
@@ -35,5 +43,26 @@ test('GTD skill descriptions require explicit invocation', () => {
     assert.match(frontmatter.description, /explicit/i);
     assert.doesNotMatch(frontmatter.description, /\bUse when\b/i);
     assert.doesNotMatch(frontmatter.description, /\bAlso use when\b/i);
+  }
+});
+
+test('GTD skill frontmatter uses YAML-safe scalar values', () => {
+  const skillDirs = ['clarify', 'plan-project'];
+
+  for (const skillDir of skillDirs) {
+    const skillPath = path.join(repoRoot, 'skills', skillDir, 'SKILL.md');
+
+    for (const line of readFrontmatterLines(skillPath)) {
+      const separator = line.indexOf(':');
+      assert.notEqual(separator, -1, `${line} is a key-value line`);
+
+      const value = line.slice(separator + 1).trim();
+      const isQuoted = /^(['"]).*\1$/.test(value);
+
+      assert.ok(
+        isQuoted || !/:\s/.test(value),
+        `${skillPath} has an unquoted YAML value containing ": "`
+      );
+    }
   }
 });
