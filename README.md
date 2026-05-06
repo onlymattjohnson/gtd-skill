@@ -75,6 +75,40 @@ ln -s /path/to/gtd-skill/skills/plan-project ~/.agents/skills/plan-project
 
 Replace `/path/to/gtd-skill` with the actual path where you cloned the repo.
 
+## Usage
+
+### Processing an inbox item
+
+Invoke `gtd:clarify` and paste or describe the raw item:
+
+```
+/gtd:clarify "work on the presentation"
+```
+
+Claude will ask one clarifying question if the intent is ambiguous, then output either:
+
+- A concrete next action: `**Next action:** Open the slide deck and write the agenda slide`
+- A project flag: `**This is a project, not a next action.** Use the plan-project skill to define it.`
+
+### Planning a project
+
+Invoke `gtd:plan-project` with a project name or idea:
+
+```
+/gtd:plan-project "sort out the garage"
+```
+
+Claude walks through four steps:
+
+1. Asks why this project matters to you
+2. Proposes a specific, present-tense outcome ("Garage is cleared and items sorted into keep/donate/trash piles") and confirms it with you
+3. Brainstorms 5–7 concrete physical next actions (non-sequential)
+4. Asks which one to start with and outputs a single next action to capture on your list
+
+### Combined workflow
+
+`gtd:clarify` and `gtd:plan-project` are designed to work together. When `gtd:clarify` flags an item as a project, invoke `gtd:plan-project` on it to complete the processing loop.
+
 ## Project structure
 
 ```
