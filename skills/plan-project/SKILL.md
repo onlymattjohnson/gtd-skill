@@ -17,11 +17,14 @@ Wait for the answer before continuing.
 
 ## Step 2: Propose the Project Outcome
 
+If the Step 1 answer is vague (e.g., "I don't know, I just feel I should"), ask one follow-up: "What would change if this project were done?" Then proceed.
+
 Write a specific, present-tense statement of what done looks like.
 
 Rules:
 - Completed state, not an activity
 - Specific enough to know when achieved
+- Specific enough that someone else could confirm it's done without asking you
 - No -ing verbs at the start ("organizing the files" → "files are organized by category")
 
 Format:
@@ -36,15 +39,16 @@ Wait for confirmation or a correction before continuing.
 Generate 5–7 concrete physical actions that could move this project forward. Tell the user explicitly that the order does not matter — this is a brainstorm, not a plan.
 
 Rules:
-- Each action starts with a physical verb
+- Each action starts with a physical verb (call, email, open, write, buy, schedule, search, text, read, fill out, draft, look up, send, go to)
 - Each is completable without stopping to wait for someone else or produce an intermediate artifact
-- No action in the list depends on another action in the list
+- Include both parallel and sequential possibilities — sequencing gets resolved in Step 4
 
 Format:
 > **Possible next actions (order doesn't matter):**
 > - [action]
 > - [action]
-> ...
+
+Ask: "Anything missing from this list, or shall we pick one?" Wait for their response before continuing to Step 4.
 
 ## Step 4: Identify the Single Next Action
 
