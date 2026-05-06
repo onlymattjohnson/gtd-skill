@@ -39,7 +39,7 @@ Wait for confirmation or a correction before continuing.
 Generate 5–7 concrete physical actions that could move this project forward. Tell the user explicitly that the order does not matter — this is a brainstorm, not a plan.
 
 Rules:
-- Each action starts with a physical verb (call, email, open, write, buy, schedule, search, text, read, fill out, draft, look up, send, go to)
+- Each action starts with a physical verb (call, email, open, write, print, buy, schedule, search, text, read, fill out, sign, book, draft, look up, send, go to)
 - Each is completable without stopping to wait for someone else or produce an intermediate artifact
 - Include both parallel and sequential possibilities — sequencing gets resolved in Step 4
 
