@@ -102,7 +102,7 @@ function installCodex() {
       fs.symlinkSync(target, linkPath, symlinkType);
       console.log(`Codex: \$${skill} installed.`);
     } catch (err) {
-      console.error(`Codex: failed to create link for $${skill} — ${err.message}`);
+      console.error(`Codex: failed to create link for \$${skill} — ${err.message}`);
       if (process.platform === 'win32') {
         console.error('  On Windows, try running with Administrator privileges or enable Developer Mode.');
       }
