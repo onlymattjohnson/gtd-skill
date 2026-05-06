@@ -1,0 +1,17 @@
+{
+  "name": "gtd-local",
+  "metadata": {
+    "description": "Local marketplace for personal GTD Claude Code skills"
+  },
+  "owner": {
+    "name": "Matt Johnson"
+  },
+  "plugins": [
+    {
+      "name": "gtd",
+      "source": "./",
+      "description": "Personal GTD skills for inbox clarification and project planning",
+      "version": "1.0.0"
+    }
+  ]
+}

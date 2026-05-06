@@ -1,0 +1,9 @@
+{
+  "name": "gtd",
+  "version": "1.0.0",
+  "description": "Personal GTD skills for inbox clarification and project planning",
+  "author": {
+    "name": "Matt Johnson"
+  },
+  "skills": "./skills/"
+}

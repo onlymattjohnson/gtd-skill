@@ -4,15 +4,15 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 const readline = require('readline');
+const { spawnSync } = require('child_process');
 
 const REPO_ROOT = __dirname;
 const SKILLS = ['clarify', 'plan-project'];
 
-const CLAUDE_PLUGINS_FILE = path.join(
-  os.homedir(), '.claude', 'plugins', 'installed_plugins.json'
-);
-const PLUGIN_KEY = 'gtd@local';
+const CLAUDE_PLUGIN_ID = 'gtd@gtd-local';
 const AGENTS_SKILLS_DIR = path.join(os.homedir(), '.agents', 'skills');
+const CLAUDE_MANIFEST_FILE = path.join(REPO_ROOT, '.claude-plugin', 'plugin.json');
+const CLAUDE_MARKETPLACE_FILE = path.join(REPO_ROOT, '.claude-plugin', 'marketplace.json');
 
 function ask(question) {
   const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
@@ -24,46 +24,34 @@ function ask(question) {
   });
 }
 
+function runClaude(args) {
+  const result = spawnSync('claude', args, { stdio: 'inherit' });
+
+  if (result.error && result.error.code === 'ENOENT') {
+    console.error('Claude Code: claude CLI not found in PATH.');
+    process.exit(1);
+  }
+  if (result.error) {
+    console.error(`Claude Code: failed to run claude ${args.join(' ')} — ${result.error.message}`);
+    process.exit(1);
+  }
+  if (result.status !== 0) {
+    process.exit(result.status ?? 1);
+  }
+}
+
 function installClaudeCode() {
-  const pluginsDir = path.dirname(CLAUDE_PLUGINS_FILE);
-  if (!fs.existsSync(pluginsDir)) {
-    fs.mkdirSync(pluginsDir, { recursive: true });
+  if (!fs.existsSync(CLAUDE_MANIFEST_FILE)) {
+    console.error(`Claude Code: plugin manifest not found at ${CLAUDE_MANIFEST_FILE}.`);
+    process.exit(1);
+  }
+  if (!fs.existsSync(CLAUDE_MARKETPLACE_FILE)) {
+    console.error(`Claude Code: marketplace manifest not found at ${CLAUDE_MARKETPLACE_FILE}.`);
+    process.exit(1);
   }
 
-  let data = { version: 2, plugins: {} };
-  if (fs.existsSync(CLAUDE_PLUGINS_FILE)) {
-    try {
-      data = JSON.parse(fs.readFileSync(CLAUDE_PLUGINS_FILE, 'utf8'));
-    } catch {
-      console.warn('Warning: installed_plugins.json could not be parsed — writing fresh file.');
-    }
-  }
-  if (!data.plugins) data.plugins = {};
-
-  const now = new Date().toISOString();
-  const entries = data.plugins[PLUGIN_KEY];
-  const existing = Array.isArray(entries) ? entries[0] : null;
-
-  if (existing) {
-    if (existing.installPath === REPO_ROOT) {
-      console.log('Claude Code: already installed — skipping.');
-      return;
-    }
-    existing.installPath = REPO_ROOT;
-    existing.lastUpdated = now;
-    console.log('Claude Code: updated install path (repo moved).');
-  } else {
-    data.plugins[PLUGIN_KEY] = [{
-      scope: 'user',
-      installPath: REPO_ROOT,
-      version: '1.0.0',
-      installedAt: now,
-      lastUpdated: now,
-    }];
-    console.log('Claude Code: installed.');
-  }
-
-  fs.writeFileSync(CLAUDE_PLUGINS_FILE, JSON.stringify(data, null, 2) + '\n');
+  runClaude(['plugin', 'marketplace', 'add', REPO_ROOT]);
+  runClaude(['plugin', 'install', CLAUDE_PLUGIN_ID, '--scope', 'user']);
   console.log('  → Restart Claude Code to activate.');
 }
 

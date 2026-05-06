@@ -26,6 +26,8 @@ node install.js
 
 You'll be prompted to choose Claude Code, Codex, or both. Restart your CLI after installing.
 
+Claude Code exposes plugin skills with the plugin namespace from `.claude-plugin/plugin.json`, so these skills register as `/gtd:clarify` and `/gtd:plan-project` even if the repo folder is named something else.
+
 You can also run it via npm:
 
 ```bash
@@ -40,26 +42,14 @@ npm run setup
 git clone <repo-url> ~/code/gtd-skill
 ```
 
-**2. Register the plugin** by adding a `gtd@local` entry to `~/.claude/plugins/installed_plugins.json`:
+**2. Add the local marketplace and install the plugin:**
 
-```json
-{
-  "version": 2,
-  "plugins": {
-    "gtd@local": [
-      {
-        "scope": "user",
-        "installPath": "/Users/<your-username>/code/gtd-skill",
-        "version": "1.0.0",
-        "installedAt": "2026-05-06T00:00:00.000Z",
-        "lastUpdated": "2026-05-06T00:00:00.000Z"
-      }
-    ]
-  }
-}
+```bash
+claude plugin marketplace add /path/to/gtd-skill
+claude plugin install gtd@gtd-local --scope user
 ```
 
-Replace `/Users/<your-username>/code/gtd-skill` with the actual path where you cloned the repo.
+Replace `/path/to/gtd-skill` with the actual path where you cloned the repo.
 
 **3. Restart Claude Code.** The skills will appear in the session on next launch.
 
@@ -117,6 +107,9 @@ skills/
     SKILL.md        # gtd:clarify skill
   plan-project/
     SKILL.md        # gtd:plan-project skill
+.claude-plugin/
+  plugin.json       # Declares the Claude Code plugin namespace as "gtd"
+  marketplace.json  # Local Claude Code marketplace for supported installs
 install.js          # Cross-platform install script
-package.json        # Declares this repo as the "gtd" plugin
+package.json        # npm metadata and setup script
 ```
