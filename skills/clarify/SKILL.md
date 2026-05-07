@@ -5,42 +5,81 @@ description: "Explicit invocation only: gtd:clarify, or a direct request for the
 
 # GTD Clarify
 
-Process one inbox item at a time into either a concrete next action or a named project.
+Walk the person through processing one inbox item using the GTD clarify flowchart. Be a guide, not a classifier — show your reasoning at each step so they learn the framework. Propose specific outputs and invite refinement rather than asking open-ended questions.
 
-## Step 1: Clarifying Question (only if needed)
+## Step 1: Understand the Item
 
-If the item's intent is ambiguous, ask ONE question to understand what the person actually wants to accomplish. If intent is clear, skip directly to Step 2.
+Restate the item in one plain sentence. If the intent is genuinely unclear, ask ONE question before proceeding. Skip the question if intent is clear.
 
-Never ask more than one question.
+## Step 2: Is It Actionable?
 
-Format:
-> To clarify: [one question]?
+**Actionable** means: someone could take a physical step on this right now and it would move forward.
+**Not actionable** means: it's information to keep, an idea for later, or something to discard.
 
-## Step 2: Action or Project?
+State your read and the brief reason why. Then continue — don't wait for confirmation unless it's genuinely ambiguous.
 
-**Next action:** completable without stopping to wait for someone else or to produce an intermediate artifact first.
+## Step 3A: Non-Actionable Paths
 
-**Project:** requires more than one sequential step, or depends on something that doesn't yet exist.
+Pick one bucket and explain why in one sentence:
 
-## Step 3: Output
+**Trash** — Not needed now or later; nothing lost by discarding.
+> **Trash:** [reason]
 
-### If next action
+**Someday/Maybe** — Might want to do it, but not committing now. Revisit at weekly review.
+> **Someday/Maybe:** [what it is] — add to your someday/maybe list
 
-> **Next action:** [physical verb] + [specific what] + [where/who/context if relevant]
+**Reference** — No action needed, but worth keeping as information.
+> **Reference:** [what it is] — file where you can retrieve it later
 
-Physical verbs: call, email, open, write, print, buy, schedule, search, text, read, fill out, sign, book, draft, look up, send, go to
+## Step 3B: Actionable — Next Action or Project?
 
-"Decide" and "think about" are not physical verbs — push toward the physical step that makes the decision happen.
+Ask yourself: what is the very next physical step someone could take on this right now?
 
-### If project
+State what that step would be. Then assess:
 
-> **This is a project, not a next action.**
-> **Project outcome:** [present-tense completed state]
-> Use the plan-project skill to define next actions for this project.
+**Next action:** That one step gets it done — no prerequisite step needed first, no intermediate artifact to create first.
+
+**Project:** Getting to done requires more than one sequential step, OR the next action isn't yet clear without first figuring something out or producing something that doesn't yet exist.
+
+If it's a project: state specifically what makes it multi-step (name the dependency or missing prerequisite). Then continue to Step 4.
+
+If it's a next action: go to Step 5.
+
+## Step 4: Project — Outcome and First Next Action
+
+Work through two things in order:
+
+**Outcome:** What does "done" look like in present-tense completed state?
+
+Propose one based on what you understand:
+> **Project:** [name] — [present-tense completed state]
+
+Ask: "Does that capture what done looks like, or would you change it?"
+
+Wait for confirmation or a correction before continuing.
+
+**First next action:** The very next physical step to move this project forward — something doable right now without waiting on anything.
+
+Propose one:
+> **First next action:** [physical verb] + [specific what] + [context if relevant]
+
+Ask: "Does that feel like the right first move, or is there something that needs to happen earlier?"
+
+## Step 5: Next Action — Refine and Output
+
+Verify:
+- Starts with a physical verb (call, email, open, write, buy, schedule, go to — not "think about" or "decide")
+- Specific enough to act on without stopping to figure anything out
+
+Output:
+> **Next action:** [physical verb] + [specific what] + [context if relevant]
+
+If you significantly rewrote the original, add one sentence explaining why.
 
 ## Rules
 
-- One output only — never give both
-- If completing it requires waiting on something or producing an intermediate artifact first, it's a project
-- Keep the next action to one sentence
-- If you significantly rewrote the original, add one sentence explaining why (too vague or needed splitting)
+- Show brief reasoning at each fork — the goal is for the person to understand why each item landed where it did
+- Propose specific outputs — draft something concrete and invite refinement, don't ask open-ended questions
+- For projects, always continue through to outcome and first next action — never just say "use plan-project"
+- One output per path — never give both next action and project
+- Keep all outputs to one sentence
