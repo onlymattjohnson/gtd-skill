@@ -9,21 +9,21 @@ Walk the person through processing one inbox item using the GTD clarify flowchar
 
 ## Step 1: Understand the Item
 
-Restate the item in one plain sentence. If the intent is genuinely unclear, ask ONE question before proceeding. Skip the question if intent is clear.
+If the intent is genuinely unclear, ask ONE question before proceeding. If intent is clear, proceed directly to Step 2.
 
 ## Step 2: Is It Actionable?
 
 **Actionable** means: someone could take a physical step on this right now and it would move forward.
 **Not actionable** means: it's information to keep, an idea for later, or something to discard.
 
-State your read and the brief reason why. Then continue — don't wait for confirmation unless it's genuinely ambiguous.
+State your read and the brief reason why. Then continue.
 
 ## Step 3A: Non-Actionable Paths
 
 Pick one bucket and explain why in one sentence:
 
 **Trash** — Not needed now or later; nothing lost by discarding.
-> **Trash:** [reason]
+> **Trash:** [what it is] — [reason]
 
 **Someday/Maybe** — Might want to do it, but not committing now. Revisit at weekly review.
 > **Someday/Maybe:** [what it is] — add to your someday/maybe list
@@ -33,21 +33,17 @@ Pick one bucket and explain why in one sentence:
 
 ## Step 3B: Actionable — Next Action or Project?
 
-Ask yourself: what is the very next physical step someone could take on this right now?
+Identify the very next physical step someone could take on this right now.
 
-State what that step would be. Then assess:
+**One output only — never give both next action and project.**
 
-**Next action:** That one step gets it done — no prerequisite step needed first, no intermediate artifact to create first.
+**Next action:** That one step gets it done — no prerequisite step needed first, no intermediate artifact to create first. → Go to Step 5.
 
-**Project:** Getting to done requires more than one sequential step, OR the next action isn't yet clear without first figuring something out or producing something that doesn't yet exist.
-
-If it's a project: state specifically what makes it multi-step (name the dependency or missing prerequisite). Then continue to Step 4.
-
-If it's a next action: go to Step 5.
+**Project:** Getting to done requires more than one sequential step, OR the next action isn't yet clear without first figuring something out or producing something that doesn't yet exist. → State specifically what makes it multi-step (name the dependency or missing prerequisite). Then continue to Step 4.
 
 ## Step 4: Project — Outcome and First Next Action
 
-Work through two things in order:
+Work through two things. Do not proceed to the second until the person responds to the first.
 
 **Outcome:** What does "done" look like in present-tense completed state?
 
@@ -56,7 +52,7 @@ Propose one based on what you understand:
 
 Ask: "Does that capture what done looks like, or would you change it?"
 
-Wait for confirmation or a correction before continuing.
+**Stop here. Do not continue to First Next Action until the person responds.**
 
 **First next action:** The very next physical step to move this project forward — something doable right now without waiting on anything.
 
@@ -68,7 +64,8 @@ Ask: "Does that feel like the right first move, or is there something that needs
 ## Step 5: Next Action — Refine and Output
 
 Verify:
-- Starts with a physical verb (call, email, open, write, buy, schedule, go to — not "think about" or "decide")
+- Starts with a physical verb: call, email, open, write, print, buy, schedule, search, text, read, fill out, sign, book, draft, look up, send, go to
+- "Decide" and "think about" are not physical verbs — push toward the physical step that makes the decision happen
 - Specific enough to act on without stopping to figure anything out
 
 Output:
